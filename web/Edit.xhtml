@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:c="http://java.sun.com/jsp/jstl/core"
+      xmlns:p="http://primefaces.org/ui">
+    <h:head>
+        <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+    </h:head>
+    <h:body>
+        <h:form>
+            <c:forEach var="resume" items="#{dtResume.selectedResume}" varStatus="status">
+                <div>
+                    <h:inputText value="#{resume.idResume}"/><br/>
+                    <h:inputText value="#{resume.firstName}"/><br/>
+                    <h:inputText value="#{resume.experiance}"/><br/>
+                    <p:calendar value="#{resume.dateCreate}" pattern="yyyy-MM-dd"/>
+                    <br/>
+                    <h:commandButton action="#{dtResume.update(resume)}" value="Edit"/>
+                </div>
+            </c:forEach>
+            <h:commandLink action="success">Вернуться назад</h:commandLink>
+        </h:form>
+    </h:body>
+</html>
